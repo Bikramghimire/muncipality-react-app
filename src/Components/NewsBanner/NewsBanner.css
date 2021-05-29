@@ -1,0 +1,14 @@
+.title {
+  margin-bottom: 20px;
+
+  padding: 20px;
+}
+
+.img {
+  height: 200px;
+  width: 100%;
+}
+.carousel {
+  background-color: burlywood;
+  padding-bottom: 10px;
+}

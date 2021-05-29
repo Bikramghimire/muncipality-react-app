@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+.navbar-logo {
+  position: relative;
+}
+ul {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  font-weight: 500;
+}
+li:not(:last-child) {
+  margin-right: 20px;
+}
+.logo-text {
+  position: absolute;
+  top: 2px;
+  left: 120px;
+}
+.logo-text .logo-big {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 25px;
+}
