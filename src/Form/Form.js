@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 import firebase from "../Components/Firebase/Config";
+import "./Form.css";
 
 function Form() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [father, setFatherName] = useState("");
   const [zip, setZip] = useState("");
-  const [form, setForm] = useState([]);
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState(null);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [forms, setForm] = useState(null);
   const ref = firebase.firestore().collection("form");
   function addForm(newForm) {
     ref
@@ -22,23 +28,27 @@ function Form() {
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
-      setTimeout(function () {
-        setForm(items);
-        console.log(form);
-      }, 5000);
+      setForm(items);
     });
   }
 
-  function emptyForm() {
-    setName("");
-    setAddress("");
-    setFatherName("");
-    setZip("");
+  function checkValidation() {
+    if (name === "" || father === "" || address === "" || zip === "") {
+      setError(true);
+    } else {
+      setError(false);
+      handleShow();
+    }
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    checkValidation();
   }
   return (
     <div className="container">
       <h3>this is the form</h3>
-      <form>
+      {error ? <h2>there is error</h2> : ""}
+      <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label for="inputName">Name</label>
@@ -91,7 +101,7 @@ function Form() {
           <div className="form-group col-md-4">
             <label for="inputState">State</label>
             <select id="inputState" className="form-control">
-              <option selected>Choose...</option>
+              <option>Choose...</option>
               <option>...</option>
               <option>Province 1</option>
               <option>Province 2</option>
@@ -113,24 +123,51 @@ function Form() {
             />
           </div>
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            addForm({
-              name,
-              address,
-              father,
-              zip,
-            });
-            emptyForm();
-            getForm();
-          }}
-        >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title> Applicant details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {
+            <div className="Inputcss">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="text"
+                value={father}
+                onChange={(e) => setFatherName(e.target.value)}
+              />
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => setZip(e.target.value)}
+              />
+            </div>
+          }
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleClose();
+              setForm({ name, father, address, zip });
+              console.log(forms);
+            }}
+          >
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

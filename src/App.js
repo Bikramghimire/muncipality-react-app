@@ -13,7 +13,6 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/form" component={Form} />
           <Route path="/example" component={Example} />
-          <Route component={Error} />
         </Switch>
       </main>
     </div>
