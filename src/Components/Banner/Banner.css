@@ -1,4 +1,34 @@
 .banner {
   background-color: #333333;
-  padding: 10px 0px;
+  display: flex;
+}
+.covid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+.covid p {
+  margin-left: 30px;
+}
+.covidstyle {
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: #333333;
+}
+.covid .NewCases {
+  background-color: #fcaaaa;
+}
+.covid .NewDeath {
+  background-color: #d14c67;
+}
+.covid .TotalDeath {
+  background-color: #d14c67;
+}
+.covid .TotalCases {
+  background-color: #ffbd80;
+}
+.covid .TotalRecovered {
+  background-color: #e6f3c2;
 }
