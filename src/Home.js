@@ -7,6 +7,7 @@ import NewsBanner from "./Components/NewsBanner/NewsBanner";
 import Service from "./Components/Service/Service";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import SimpleMap from "./Components/SimpleMaps/SimpleMap";
 const options = {
   method: "GET",
   url: "https://covid-19-tracking.p.rapidapi.com/v1/Nepal",
@@ -36,6 +37,7 @@ function Home() {
       <Showcase />
       <NewsBanner />
       <Service />
+      <SimpleMap />
     </div>
   );
 }

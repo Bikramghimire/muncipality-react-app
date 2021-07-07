@@ -46,7 +46,7 @@ function Form() {
   }
   return (
     <div className="container">
-      <h3>this is the form</h3>
+      <h3>Online Registeration</h3>
       {error ? <h2>there is error</h2> : ""}
       <form onSubmit={handleSubmit}>
         <div className="form-row">
@@ -69,28 +69,28 @@ function Form() {
               type="text"
               className="form-control"
               id="inputPassword4"
-              placeholder="Password"
+              placeholder="Father name"
             />
           </div>
         </div>
         <div className="form-group">
-          <label for="inputAddress">Address</label>
+          <label for="inputAddress">Permanant Address</label>
           <input
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             type="text"
             className="form-control"
             id="inputAddress"
-            placeholder="1234 Main St"
+            placeholder="permanant address"
           />
         </div>
         <div className="form-group">
-          <label for="inputAddress2">Address 2</label>
+          <label for="inputAddress2">Temporary Address </label>
           <input
             type="text"
             className="form-control"
             id="inputAddress2"
-            placeholder="Apartment, studio, or floor"
+            placeholder="temporary address"
           />
         </div>
         <div className="form-row">

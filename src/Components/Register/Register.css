@@ -1,0 +1,16 @@
+.register-link ul {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  margin: 12px;
+}
+.register-link ul li {
+  border: 0.5px solid #ddd;
+  border-radius: 5px;
+  padding: 20px 10px;
+  width: 345px;
+  margin: 10px 0px;
+}
+.register-link ul {
+}

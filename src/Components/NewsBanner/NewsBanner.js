@@ -34,7 +34,7 @@ function NewsBanner() {
   }
 
   return (
-    <div>
+    <div id="newsbanner">
       <div className="p-10" style={{ backgroundColor: "#333" }}>
         <h2 className="text-black text-center">NEWS AND UPDATES</h2>
       </div>

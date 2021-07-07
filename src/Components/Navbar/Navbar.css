@@ -13,6 +13,9 @@ ul {
   font-size: large;
   font-weight: 500;
 }
+ul li:hover {
+  cursor: pointer;
+}
 li:not(:last-child) {
   margin-right: 20px;
 }

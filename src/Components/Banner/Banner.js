@@ -10,7 +10,7 @@ function Banner({ covidData }) {
           <div className="covid">
             <p>{covidData["Last Update"]}</p>
             <p className="NewCases covidstyle">
-              New Cases: {covidData["New Cases_text"]}
+              New Cases: <span>{covidData["New Cases_text"]}</span>
             </p>
             <p className="NewDeath covidstyle">
               New Death: {covidData["New Deaths_text"]}
@@ -27,7 +27,7 @@ function Banner({ covidData }) {
           </div>
         </marquee>
       ) : (
-        "loading"
+        "loading....."
       )}
     </div>
   );

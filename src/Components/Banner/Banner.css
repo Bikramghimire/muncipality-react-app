@@ -1,5 +1,6 @@
 .banner {
   background-color: #333333;
+  height: 50px;
   display: flex;
 }
 .covid {
